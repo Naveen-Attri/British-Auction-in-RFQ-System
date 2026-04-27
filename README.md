@@ -1,80 +1,80 @@
-# ⚡ AuctionRFQ — British Auction Based RFQ System
+# AuctionRFQ — British Auction Based RFQ System
 
-> A real-time, competitive procurement platform where suppliers openly underbid each other in a British Auction format — with live WebSocket updates, automatic auction extensions, and a hard-stop forced close mechanism.
+> A real-time, competitive procurement platform that lets suppliers openly underbid each other using a British Auction format. It features live WebSocket updates, automatic auction extensions, and a hard-stop forced close mechanism to keep things moving smoothly.
 
 ---
 
-## 🌐 Demo / Live Link
+## Demo / Live Link
 
-> Run locally following the [Installation Instructions](#-installation-instructions) below.  
+> Run locally following the [Installation Instructions](#installation-instructions) below.  
 > Default URLs after setup:
 > - **Frontend:** http://localhost:3000  
 > - **Backend API:** http://localhost:5000/api
 
 ---
 
-## 📸 Screenshots / Preview
+## Screenshots / Preview
 
 | RFQ Listing | RFQ Detail — Live Bidding | Create RFQ |
 |---|---|---|
 | Live status badges, L1 prices update in real-time via Socket.IO | Ranked bid table with flash animations, countdown timer, activity log | Full auction config with extension rules |
 
 > **Live features visible in action:**  
-> 🟢 `LIVE` indicator · 👁 Viewer count · ⚡ Bid flash · ⏰ Extension toast · ⚔️ Bidding War mode
+> Live indicator · Viewer count · Bid flash · Extension toast · Bidding War mode
 
 ---
 
-## 🧠 About the Project
+## About the Project
 
 ### The Problem
-Traditional RFQ (Request for Quotation) processes in procurement are opaque — suppliers submit sealed bids and have no visibility into competitor pricing, often resulting in suboptimal prices for buyers and missed opportunities for competitive suppliers.
+Traditional RFQ (Request for Quotation) processes can be pretty opaque. Suppliers usually submit sealed bids and have no visibility into competitor pricing, which often results in suboptimal prices for buyers and missed opportunities for competitive suppliers.
 
 ### The Solution
-AuctionRFQ implements a **British Auction** model for procurement:
-- Suppliers see each other's bid rankings (L1, L2, L3...) and continuously undercut
-- The auction auto-extends when activity happens near the closing time (preventing last-second sniping)
-- A **forced close (hard stop)** ensures the auction always ends at a defined absolute deadline
-- All events are pushed to connected clients instantly via **Socket.IO WebSockets** — no page refresh needed
+AuctionRFQ brings a **British Auction** model to the table:
+- Suppliers can see each other's bid rankings (L1, L2, L3...) and continuously undercut.
+- The auction auto-extends when activity happens near the closing time, preventing last-second sniping.
+- A **forced close (hard stop)** ensures the auction always ends at a defined absolute deadline.
+- All events are pushed to connected clients instantly via **Socket.IO WebSockets**, so there's no page refresh needed.
 
 ---
 
-## ✨ Features
+## Features
 
 ### Core Auction Engine
-- ✅ **British Auction format** — open, competitive, descending price
-- ✅ **Live bid ranking** — L1 (lowest) to Ln, recalculated on every bid
-- ✅ **Per-supplier rebidding** — only the latest bid from each supplier counts
-- ✅ **Cost breakdown** — Freight + Origin + Destination charges with auto-computed total
+- **British Auction format** — open, competitive, descending price.
+- **Live bid ranking** — L1 (lowest) to Ln, recalculated on every bid.
+- **Per-supplier rebidding** — only the latest bid from each supplier counts.
+- **Cost breakdown** — Freight + Origin + Destination charges with an auto-computed total.
 
 ### Auction Extension Logic
-- ✅ **Trigger Window** — configurable X-minute window before close
-- ✅ **Extension Duration** — adds Y minutes to current close on each trigger
-- ✅ **Three extension rules** (configurable per RFQ):
-  - **Any Bid** — any bid placed within the trigger window
-  - **Rank Change** — any supplier ranking shift in the window
-  - **L1 Change** — only when the lowest bidder (L1) changes
-- ✅ **Hard Stop (Forced Close)** — auction NEVER extends beyond this absolute deadline
+- **Trigger Window** — configurable X-minute window before close.
+- **Extension Duration** — adds Y minutes to the current close on each trigger.
+- **Three extension rules** (configurable per RFQ):
+  - **Any Bid** — any bid placed within the trigger window.
+  - **Rank Change** — any supplier ranking shift in the window.
+  - **L1 Change** — only when the lowest bidder (L1) changes.
+- **Hard Stop (Forced Close)** — the auction NEVER extends beyond this absolute deadline.
 
 ### Real-Time (Socket.IO)
-- ✅ **Live bid table updates** — new bids appear instantly with a blue flash animation
-- ✅ **Extension toasts** — amber notification when auction time is extended
-- ✅ **Status sync** — `upcoming → active → closed → force_closed` pushed to all viewers
-- ✅ **Viewer count** — live count of users watching the same auction room
-- ✅ **LIVE indicator** — green pulsing dot when WebSocket is connected
+- **Live bid table updates** — new bids appear instantly with a blue flash animation.
+- **Extension toasts** — amber notification when auction time is extended.
+- **Status sync** — `upcoming → active → closed → force_closed` pushed to all viewers.
+- **Viewer count** — live count of users watching the same auction room.
+- **LIVE indicator** — green pulsing dot when the WebSocket is connected.
 
 ### Demo / Testing Tools
-- ✅ **🤖 Simulate Bid** — fires one random supplier bid that auto-undercuts current L1
-- ✅ **⚔️ Bidding War** — triggers 5 rapid bids staggered over 6 seconds
-- ✅ **Seed script** — creates 3 realistic demo RFQs with initial bids
+- **Simulate Bid** — fires one random supplier bid that auto-undercuts the current L1.
+- **Bidding War** — triggers 5 rapid bids staggered over 6 seconds.
+- **Seed script** — creates 3 realistic demo RFQs with initial bids.
 
 ### Pages
-- ✅ **RFQ List** — grid of all auctions, L1 prices update live without refresh
-- ✅ **RFQ Detail** — live bid rankings, bid form, config panel, scrollable activity log
-- ✅ **Create RFQ** — full config form with validation
+- **RFQ List** — grid of all auctions, L1 prices update live without a refresh.
+- **RFQ Detail** — live bid rankings, bid form, config panel, scrollable activity log.
+- **Create RFQ** — full config form with validation.
 
 ---
 
-## 🧱 Tech Stack
+## Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -88,11 +88,11 @@ AuctionRFQ implements a **British Auction** model for procurement:
 
 ---
 
-## 📦 Installation Instructions
+## Installation Instructions
 
 ### Prerequisites
 - **Node.js v18+** — [Download](https://nodejs.org/)
-- **MongoDB** *(optional)* — if not installed, an in-memory DB starts automatically
+- **MongoDB** *(optional)* — if not installed, an in-memory DB starts automatically.
 
 ### 1. Clone / Download the project
 
@@ -117,7 +117,7 @@ npm install
 
 ---
 
-## 🔐 Environment Variables
+## Environment Variables
 
 Create or edit `backend/.env`:
 
@@ -137,7 +137,7 @@ MONGO_URI=mongodb+srv://<username>:<password>@cluster0.xxxxx.mongodb.net/rfq_auc
 
 ---
 
-## ▶️ Usage / How to Run
+## Usage / How to Run
 
 ### Option A — Manual (two terminals)
 
@@ -153,11 +153,9 @@ cd frontend
 node node_modules\vite\bin\vite.js --port 3000
 ```
 
-> ⚠️ **Windows only:** If a **Windows Firewall** dialog appears, click **"Allow Access"**
-
 ### Option B — One-click (Windows)
 
-Double-click **`start.bat`** in the project root. It opens both servers in separate windows and launches the browser automatically.
+Double-click **`start.bat`** in the project root. It'll open both servers in separate windows and launch the browser automatically.
 
 ### Seed Demo Data (optional but recommended)
 
@@ -182,7 +180,7 @@ This creates **3 demo RFQs**:
 
 ---
 
-## 🔌 API Endpoints
+## API Endpoints
 
 ### RFQ Endpoints
 
@@ -265,7 +263,7 @@ This creates **3 demo RFQs**:
 
 ---
 
-## 🗂️ Project Structure
+## Project Structure
 
 ```
 British Auction in RFQ System/
@@ -332,7 +330,7 @@ British Auction in RFQ System/
 
 ---
 
-## 🧠 Core Auction Logic
+## Core Auction Logic
 
 ### Extension Decision Flow
 
@@ -386,23 +384,23 @@ closed / force_closed = TERMINAL (never reverts)
 
 ---
 
-## 🤝 Contributing Guidelines
+## Contributing Guidelines
 
-1. **Fork** the repository
+1. **Fork** the repository.
 2. **Create a feature branch:** `git checkout -b feature/your-feature-name`
 3. **Commit** with clear messages: `git commit -m "feat: add email notification on auction close"`
 4. **Push** to your fork: `git push origin feature/your-feature-name`
-5. **Open a Pull Request** with a description of the change
+5. **Open a Pull Request** with a brief description of the change.
 
 ### Code Style
-- Use `camelCase` for variables and functions
-- Keep controllers thin — business logic belongs in `services/`
-- All socket emissions go through `bid.service.js` or `auction.service.js`
-- CSS changes go in `index.css` using the existing design token variables
+- Use `camelCase` for variables and functions.
+- Keep controllers thin — business logic belongs in `services/`.
+- All socket emissions go through `bid.service.js` or `auction.service.js`.
+- CSS changes go in `index.css` using the existing design token variables.
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License**.
 
@@ -428,47 +426,47 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 
 ---
 
-## 👤 Author / Contact
+## Author / Contact
 
-**Project:** AuctionRFQ — British Auction Platform  
+**Name:** Naveen Attri
 **Built with:** Node.js · Express · MongoDB · React · Socket.IO  
 
-> Feel free to open an issue or pull request for bugs, features, or improvements.
+> Feel free to open an issue or pull request if you spot any bugs, have feature ideas, or just want to suggest improvements.
 
 ---
 
-## 🙏 Acknowledgements
+## Acknowledgements
 
-- [Socket.IO](https://socket.io/) — for the excellent real-time WebSocket library
-- [Mongoose](https://mongoosejs.com/) — elegant MongoDB object modeling
-- [mongodb-memory-server](https://github.com/nodkz/mongodb-memory-server) — zero-install MongoDB for local dev
-- [Vite](https://vitejs.dev/) — blazing fast frontend tooling
-- [React Router](https://reactrouter.com/) — declarative routing for React
-- [Inter Font](https://fonts.google.com/specimen/Inter) — clean, readable UI typography
+- [Socket.IO](https://socket.io/) — for the excellent real-time WebSocket library.
+- [Mongoose](https://mongoosejs.com/) — for elegant MongoDB object modeling.
+- [mongodb-memory-server](https://github.com/nodkz/mongodb-memory-server) — handy zero-install MongoDB for local dev.
+- [Vite](https://vitejs.dev/) — blazing fast frontend tooling.
+- [React Router](https://reactrouter.com/) — declarative routing for React.
+- [Inter Font](https://fonts.google.com/specimen/Inter) — clean, readable UI typography.
 
 ---
 
-## 🚀 Future Improvements / Roadmap
+## Future Improvements / Roadmap
 
 ### Near-term
-- [ ] **User Authentication** — JWT-based login for buyers and suppliers; each supplier sees only their own bids initially
-- [ ] **Email Notifications** — notify suppliers when they lose L1, and buyers when auction closes
-- [ ] **Persistent Storage** — MongoDB Atlas cloud setup guide + Docker Compose file
-- [ ] **Admin Dashboard** — buyer view to manage all RFQs, export bid history to CSV/Excel
+- [ ] **User Authentication** — JWT-based login for buyers and suppliers; each supplier sees only their own bids initially.
+- [ ] **Email Notifications** — notify suppliers when they lose L1, and buyers when an auction closes.
+- [ ] **Persistent Storage** — MongoDB Atlas cloud setup guide + Docker Compose file.
+- [ ] **Admin Dashboard** — buyer view to manage all RFQs, export bid history to CSV/Excel.
 
 ### Medium-term
-- [ ] **Multiple Items per RFQ** — line-item bidding with individual rankings per item
-- [ ] **Reserve Price** — hidden floor price; auction only awards if L1 is below reserve
-- [ ] **Supplier Whitelist** — invite-only auctions; only approved suppliers can bid
-- [ ] **Mobile Responsive** — full mobile layout optimization
-- [ ] **Dark / Light Mode Toggle** — user preference persisted in localStorage
+- [ ] **Multiple Items per RFQ** — line-item bidding with individual rankings per item.
+- [ ] **Reserve Price** — hidden floor price; auction only awards if L1 is below reserve.
+- [ ] **Supplier Whitelist** — invite-only auctions; only approved suppliers can bid.
+- [ ] **Mobile Responsive** — full mobile layout optimization.
+- [ ] **Dark / Light Mode Toggle** — user preference persisted in localStorage.
 
 ### Long-term
-- [ ] **Analytics Dashboard** — bid velocity charts, extension frequency, savings vs. baseline
-- [ ] **AI Price Suggestion** — suggest a competitive bid based on historical data
-- [ ] **Multi-currency Support** — USD, EUR, INR, etc. with live conversion
-- [ ] **Audit Export** — full activity log export as PDF report for procurement compliance
-- [ ] **Webhook Integration** — POST to external ERP/SCM systems on auction close
+- [ ] **Analytics Dashboard** — bid velocity charts, extension frequency, savings vs. baseline.
+- [ ] **AI Price Suggestion** — suggest a competitive bid based on historical data.
+- [ ] **Multi-currency Support** — USD, EUR, INR, etc. with live conversion.
+- [ ] **Audit Export** — full activity log export as PDF report for procurement compliance.
+- [ ] **Webhook Integration** — POST to external ERP/SCM systems on auction close.
 
 ---
 
