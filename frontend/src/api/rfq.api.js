@@ -1,4 +1,5 @@
-const BASE = '/api';
+const isProd = import.meta.env?.PROD;
+const BASE = isProd ? '/_/backend/api' : '/api';
 
 async function handleResponse(res) {
   const data = await res.json();

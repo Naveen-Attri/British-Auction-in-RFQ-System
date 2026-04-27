@@ -4,8 +4,12 @@
  */
 import { io } from 'socket.io-client';
 
-const socket = io('http://localhost:5000', {
-  transports: ['websocket'],
+const isProd = import.meta.env?.PROD;
+const backendUrl = isProd ? window.location.origin : 'http://localhost:5000';
+
+const socket = io(backendUrl, {
+  path: isProd ? '/_/backend/socket.io' : '/socket.io',
+  transports: ['polling', 'websocket'], // Allow polling fallback for Vercel serverless environments
   reconnectionAttempts: Infinity,
   reconnectionDelay: 2000,
 });
