@@ -13,17 +13,6 @@
 
 ---
 
-## Screenshots / Preview
-
-| RFQ Listing | RFQ Detail — Live Bidding | Create RFQ |
-|---|---|---|
-| Live status badges, L1 prices update in real-time via Socket.IO | Ranked bid table with flash animations, countdown timer, activity log | Full auction config with extension rules |
-
-> **Live features visible in action:**  
-> Live indicator · Viewer count · Bid flash · Extension toast · Bidding War mode
-
----
-
 ## About the Project
 
 ### The Problem
